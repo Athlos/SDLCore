@@ -62,7 +62,7 @@ protected:
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer;
 	SDL_Surface* m_surface;
-	TTF_Font* font;
+	TTF_Font* m_font;
 
 	int m_width;
 	int m_height;
@@ -70,8 +70,6 @@ protected:
 	unsigned char m_clearRed;
 	unsigned char m_clearGreen;
 	unsigned char m_clearBlue;
-
-	TTF_Font* m_font;
 	
 private:
 

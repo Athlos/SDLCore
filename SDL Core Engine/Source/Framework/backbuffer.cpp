@@ -52,8 +52,17 @@ BackBuffer::~BackBuffer()
 	SDL_DestroyWindow(m_pWindow);
 	m_pWindow = 0;
 
-	//SDL_FreeSurface(m_surface);
-	TTF_CloseFont(font);
+	delete m_pTextureManager;
+	m_pTextureManager = 0;
+
+	SDL_FreeSurface(m_surface);
+	TTF_CloseFont(m_font);
+
+	//delete m_surface;
+	m_surface = 0;
+
+	//delete m_font;
+	m_font = 0;
 
 	IMG_Quit();
 	SDL_Quit();
@@ -143,7 +152,6 @@ bool BackBuffer::Initialise(int width, int height)
 
 	// Load fonts
 	TTF_Init();
-	font = TTF_OpenFont("assets\\currentfont.ttf", 12);
 	m_font = TTF_OpenFont("assets\\currentfont.ttf", 12);
 	
 	SDL_Color clrFg = { 0, 0, 255, 0 };  // Blue ("Fg" is foreground)

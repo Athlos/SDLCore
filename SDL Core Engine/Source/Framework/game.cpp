@@ -20,9 +20,9 @@
 #include <cmath>
 #include <ctime>
 #include <vector>
+
 // Static Members:
 Game* Game::sm_pInstance = 0;
-
 
 Game& Game::GetInstance()
 {
@@ -62,6 +62,12 @@ Game::~Game()
 {
 	delete m_pBackBuffer;
 	m_pBackBuffer = 0;
+
+	delete m_particles;
+	m_particles = 0;
+
+	delete m_pInputHandler;
+	m_pInputHandler = 0;
 
 	system->release();
 }
